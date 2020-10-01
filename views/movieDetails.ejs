@@ -1,0 +1,43 @@
+<%- include('partials/head.ejs') %>
+
+<body>
+    <%- include('partials/header.ejs') %>
+    <main id="mainDetail">
+        <img src="https://image.tmdb.org/t/p/original<%= movieDetailsData.backdrop_path %> " alt="">
+
+        <div class="rating">
+            <img src="/img/star.svg" alt="">
+            <h4><%= movieDetailsData.vote_average %><span class="small">/10</span> </h4>
+            <h5><%= movieDetailsData.popularity %> </h5>
+        </div>
+        <section>
+            <div class="favourites">
+                <a href="/addFavourites/<%= movieDetailsData.id %> "><img src="/img/plus.svg" alt=""></a>
+                <h1>Add to favourite</h1>
+            </div>
+
+            <h3><%= movieDetailsData.original_title %> </h3>
+
+            <div class="details">
+                <p><%= movieDetailsData.release_date %> </p>
+                <p><%= movieDetailsData.status %> </p>
+            </div>
+
+            <div class="genres">
+                <% movieDetailsData.genres.forEach(element => { %>
+                <span class="btn"><%=  element.name %> </span>
+                <% }) %>
+            </div>
+
+            <div class="text">
+                <h2>Plot Summary</h2>
+                <p><%= movieDetailsData.overview%></p>
+            </div>
+        </section>
+
+    </main>
+
+
+</body>
+
+</html>

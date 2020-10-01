@@ -1,0 +1,19 @@
+<%- include('partials/head.ejs') %>
+
+<body id="fav">
+    <%- include('partials/header.ejs') %>
+    <h1>My Favourites</h1>
+    <section class="main">
+        <% myMovies.forEach(element => { %>
+        <article>
+            <a href="/removeFavourite/<%= element._id %>">
+                <img src="https://image.tmdb.org/t/p/w500<%= element.poster_path %> " alt="">
+                <h3><%= element.title%> </h3>
+            </a>
+        </article>
+        <% }) %>
+    </section>
+
+</body>
+
+</html>

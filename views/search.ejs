@@ -1,0 +1,17 @@
+<%- include('partials/head.ejs') %>
+
+<body>
+    <%- include('partials/header.ejs') %>
+    <section class="main">
+        <% searchedMovies.forEach(element => { %>
+        <article>
+            <a href="/movieDetails/<%= element.id %>">
+                <img src="https://image.tmdb.org/t/p/w500<%= element.poster_path %> " alt="">
+                <h3><%= element.title%> </h3>
+            </a>
+        </article>
+        <% }) %>
+    </section>
+</body>
+
+</html>

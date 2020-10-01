@@ -1,0 +1,41 @@
+<%- include('partials/head.ejs') %>
+
+<body>
+    <%- include('partials/header.ejs') %>
+    <main id="mainDetail">
+        <img src="https://image.tmdb.org/t/p/original<%= myMovies.backdrop_path %> " alt="">
+
+        <div class="rating">
+            <img src="/img/star.svg" alt="">
+            <h4><%= myMovies.vote_average %><span class="small">/10</span> </h4>
+            <h5><%= myMovies.popularity %> </h5>
+        </div>
+        <section>
+            <div class="favourites">
+                <a href="/removeFavourite/<%= myMovies._id %>/delete "><img src="/img/minus.svg" alt=""></a>
+                <h1>Remove from favourite</h1>
+            </div>
+
+            <h3><%= myMovies.original_title %> </h3>
+
+            <div class="details">
+                <p><%= myMovies.release_date %> </p>
+                <p><%= myMovies.status %> </p>
+            </div>
+
+            <div class="genres">
+                <% myMovies.genres.forEach(element => { %>
+                <span class="btn"><%=  element.name %> </span>
+                <% }) %>
+            </div>
+
+            <div class="text">
+                <h2>Plot Summary</h2>
+                <p><%= myMovies.overview%></p>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>
